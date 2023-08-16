@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import CrudApp from "./components/CrudApp";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <>
       <h1> EJERCICIOS REACT </h1>
       <CrudApp />
+      <hr />
     </>
   );
 }

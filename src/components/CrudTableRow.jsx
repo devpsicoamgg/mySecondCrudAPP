@@ -5,21 +5,45 @@ import deleteIcon from "../assets/eliminar.png";
 import editIcon from "../assets/editar.png";
 
 const CrudTableRow = ({ rowData, setDataToEdit, deleteData }) => {
-  let { name, diagnostico, id } = rowData;
+  const {
+    firstName,
+    middleName,
+    lastName,
+    secondLastName,
+    gender,
+    kindDoc,
+    docNumber,
+    dateOfBirth,
+    maritalStatus,
+    occupation,
+    disability,
+    telephone,
+    email,
+    id,
+  } = rowData;
 
   return (
-    <tr>
-      <td> {name} </td>
-      <td> {diagnostico} </td>
-      <td>
-        {" "}
-        <button onClick={() => setDataToEdit(rowData)}>
-          <img src={editIcon} alt="Icono" height={30} />{" "}
+    <tr className="table-row">
+      <td>{firstName}</td>
+      <td>{middleName}</td>
+      <td>{lastName}</td>
+      <td>{secondLastName}</td>
+      <td>{gender}</td>
+      <td>{kindDoc}</td>
+      <td>{docNumber}</td>
+      <td>{dateOfBirth}</td>
+      <td>{maritalStatus}</td>
+      <td>{occupation}</td>
+      <td>{disability}</td>
+      <td>{telephone}</td>
+      <td>{email}</td>
+      <td className="table-actions">
+        <button className="edit-button" onClick={() => setDataToEdit(rowData)}>
+          <img src={editIcon} alt="Editar" height={20} />
         </button>
-        <button onClick={() => deleteData(id)}>
-          {" "}
-          <img src={deleteIcon} alt="Icono" height={30} />{" "}
-        </button>{" "}
+        <button className="delete-button" onClick={() => deleteData(id)}>
+          <img src={deleteIcon} alt="Eliminar" height={20} />
+        </button>
       </td>
     </tr>
   );
