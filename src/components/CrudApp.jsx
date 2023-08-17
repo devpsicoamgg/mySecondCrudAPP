@@ -1,11 +1,29 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
+import { helpHttp } from "../helpers/helpHttp";
+import Loader from "./Loader";
+import Messaje from "./Messaje";
 
 const CrudApp = () => {
   const [db, setDb] = useState([]);
   const [dataToEdit, setDataToEdit] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  let api = helpHttp();
+  let url = "http://localhost:3000/pacientes";
+
+  useEffect(() => {
+    api.get(url).then((res) => {
+      //   console.log(res);
+      if (!res.err) {
+        setDb(res);
+      } else {
+        setDb([]);
+      }
+    });
+  }, []);
 
   const createData = (data) => {
     setDb([...db, data]);
@@ -49,6 +67,10 @@ const CrudApp = () => {
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
         />
+
+        <Loader />
+
+        <Messaje />
       </div>
     </div>
   );

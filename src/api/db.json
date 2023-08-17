@@ -1,0 +1,108 @@
+{
+  "pacientes": [
+    {
+      "id": 1,
+      "firstName": "Ana",
+      "middleName": "",
+      "lastName": "García",
+      "secondLastName": "",
+      "gender": "femenino",
+      "kindDoc": "Cédula",
+      "docNumber": "123456789",
+      "dateOfBirth": "1995-03-12",
+      "maritalStatus": "Soltero/a",
+      "occupation": "Estudiante",
+      "disability": "no",
+      "telephone": "123-456-7890",
+      "email": "ana@example.com"
+    },
+    {
+      "id": 2,
+      "firstName": "Luis",
+      "middleName": "Carlos",
+      "lastName": "Martínez",
+      "secondLastName": "Olarte",
+      "gender": "masculino",
+      "kindDoc": "Cédula",
+      "docNumber": "987654321",
+      "dateOfBirth": "1988-08-22",
+      "maritalStatus": "Casado/a",
+      "occupation": "Ingeniero",
+      "disability": "si",
+      "telephone": "987-654-3210",
+      "email": "luis@example.com"
+    },
+    {
+      "id": 3,
+      "firstName": "Carlos",
+      "middleName": "Eduardo",
+      "lastName": "Gomez",
+      "secondLastName": "Olarte",
+      "gender": "masculino",
+      "kindDoc": "Cédula",
+      "docNumber": "7855334",
+      "dateOfBirth": "1978-08-16",
+      "maritalStatus": "Casado/a",
+      "occupation": "Hogar",
+      "disability": "si",
+      "telephone": "987-654-3210",
+      "email": "carlos@example.com"
+    },
+    {
+      "id": 4,
+      "firstName": "Marlon",
+      "middleName": "",
+      "lastName": "Duarte",
+      "secondLastName": "Ortega",
+      "gender": "masculino",
+      "kindDoc": "Cédula",
+      "docNumber": "987654321",
+      "dateOfBirth": "1988-08-22",
+      "maritalStatus": "Casado/a",
+      "occupation": "Religioso",
+      "disability": "no",
+      "telephone": "987-654-3210",
+      "email": "marlon@example.com"
+    }
+  ],
+
+  "diagnosticos": [
+    {
+      "id": 1,
+      "pacienteId": 1,
+      "codigoCIE10": "F32.0",
+      "descripcion": "Episodio depresivo mayor, leve"
+    },
+    {
+      "id": 2,
+      "pacienteId": 2,
+      "codigoCIE10": "F41.1",
+      "descripcion": "Trastorno de ansiedad generalizada"
+    },
+    {
+      "id": 3,
+      "pacienteId": 1,
+      "codigoCIE10": "F43.10",
+      "descripcion": "Trastorno de estrés postraumático"
+    }
+  ],
+  
+  "modeloIntervencion": {
+    "titulo": "Modelo de Intervención Psicológica",
+    "descripcion": "Un enfoque integral para el tratamiento de trastornos psicológicos.",
+    "pasos": [
+      "Evaluación psicológica detallada",
+      "Diseño de plan de intervención personalizado",
+      "Terapia individual o grupal según necesidades",
+      "Aplicación de técnicas cognitivo-conductuales y terapia de aceptación y compromiso",
+      "Fomento de la resiliencia y habilidades de afrontamiento",
+      "Exploración de patrones de pensamiento y comportamiento",
+      "Promoción del autocuidado y la autorregulación emocional",
+      "Trabajo en la identificación y transformación de creencias limitantes",
+      "Integración de métodos de relajación y mindfulness",
+      "Apoyo en la construcción de relaciones sociales saludables",
+      "Seguimiento continuo y adaptación del plan en función del progreso",
+      "Enfoque en la prevención de recaídas y promoción del bienestar a largo plazo"
+    ]
+  }
+}
