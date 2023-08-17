@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import CrudApp from "./components/CrudApp";
+import CrudApp from "./components/CrudApp.jsx";
 
 function App() {
   return (
