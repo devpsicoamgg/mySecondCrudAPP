@@ -98,7 +98,7 @@ const CrudApp = () => {
   return (
     <>
       <div>
-        <h2>Creación de usuarios</h2>
+        <h1>Creación de usuarios</h1>
         <div className="grid-1-2">
           <CrudForm
             createData={createData}
@@ -106,7 +106,8 @@ const CrudApp = () => {
             dataToEdit={dataToEdit}
             setDataToEdit={setDataToEdit}
           />
-          {loading && <Loader />} {/* Muestra el componente Loader si loading es true */}
+          {loading && <Loader />}{" "}
+          {/* Muestra el componente Loader si loading es true */}
           {error && ( // Muestra el componente Messaje si error es true
             <Messaje
               msg={`Error ${error.status}: ${error.statusText} `}

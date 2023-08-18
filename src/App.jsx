@@ -5,8 +5,6 @@ import CrudApp from "./components/CrudApp.jsx"; // Importa el componente CrudApp
 function App() {
   return (
     <>
-      <h1> EJERCICIOS REACT </h1>{" "}
-      {/* Renderiza el encabezado h1 en la interfaz */}
       <CrudApp /> {/* Renderiza el componente CrudApp importado */}
     </>
   );

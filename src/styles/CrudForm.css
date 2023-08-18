@@ -1,15 +1,19 @@
 /* styles/CrudForm.css */
+body {
+  background-color: #7fa4ee2d;
+}
 
 .form-container {
   width: 500px;
   margin: 0 auto;
   padding: 50px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: rgba(169, 244, 137, 0.8);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #282c34;
+  box-shadow: 3px 100px 200px rgba(0, 0, 0, 0.9); 
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+  color: #fff;
 }
 
 .input-container {
@@ -29,12 +33,14 @@ input,
 select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
   margin-right: 10px;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  color: #000000;
+
 }
 
 select {
@@ -44,19 +50,31 @@ select {
 
 input:focus,
 select:focus {
-  background-color: #a0a0a0d4;
-  border-color: #007bff;
+  background-color: #aedbf1;
   outline: none;
+  box-shadow: 0px 0px 100px rgba(251, 249, 249, 0.3);
+  background-color: #ffffffcb;
+  border-radius: 5px;
 }
 
 hr {
   margin: 17px 0;
   border: none;
   width: 109%;
-  border-top: 1px solid #4c04045c;
+  border-top: 1px solid #444;
 }
 
 hr:hover {
   border-top: 2px solid #007bff;
 }
 
+
+
+  
+  @media screen and (min-width: 1024px) {
+    .grid-1-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 2rem;
+    }
