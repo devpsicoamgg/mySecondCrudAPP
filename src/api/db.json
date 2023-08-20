@@ -11,7 +11,7 @@
       "docNumber": "123456789",
       "dateOfBirth": "1995-03-12",
       "maritalStatus": "casado/a",
-      "occupation": "Estudiante",
+      "occupation": "Hogar",
       "disability": "no",
       "telephone": "123-456-7890",
       "email": "ana@example.com"
@@ -63,6 +63,54 @@
       "disability": "no",
       "telephone": "987-654-3210",
       "email": "marlon@example.com"
+    },
+    {
+      "firstName": "Yohan",
+      "middleName": "Manuel",
+      "lastName": "Clavijo",
+      "secondLastName": "",
+      "gender": "masculino",
+      "kindDoc": "cedulaCiudadania",
+      "docNumber": "11367299",
+      "dateOfBirth": "1989-12-16",
+      "maritalStatus": "soltero/a",
+      "occupation": "EMPLEADO",
+      "disability": "no",
+      "telephone": "3118250910",
+      "email": "yohan.clavijo@gmail.com",
+      "id": 1692402353485
+    },
+    {
+      "firstName": "ALBERTO",
+      "middleName": "MARIO",
+      "lastName": "GUERRERO",
+      "secondLastName": "GONZALEZ",
+      "gender": "masculino",
+      "kindDoc": "cedulaCiudadania",
+      "docNumber": "79953365",
+      "dateOfBirth": "1979-11-16",
+      "maritalStatus": "unión libre",
+      "occupation": "ESTUDIANTE",
+      "disability": "no",
+      "telephone": "3144053626",
+      "email": "psico.amgg@gmail.com",
+      "id": 1692467561527
+    },
+    {
+      "firstName": "Maria",
+      "middleName": "Vivis",
+      "lastName": "Oltalora",
+      "secondLastName": "POLANCO",
+      "gender": "femenino",
+      "kindDoc": "cedulaCiudadania",
+      "docNumber": "87986875765",
+      "dateOfBirth": "1979-11-16",
+      "maritalStatus": "divorciado/a",
+      "occupation": "hogar",
+      "disability": "no",
+      "telephone": "85764565465465",
+      "email": "psico.amgg@gmail.com",
+      "id": 1692468438321
     }
   ],
   "diagnosticos": [

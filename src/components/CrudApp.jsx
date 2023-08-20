@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 // Importaciones de módulos y componentes
 import React, { useEffect, useState } from "react";
@@ -97,30 +98,17 @@ const CrudApp = () => {
   // Renderización del componente
   return (
     <>
-      <div>
-        <h1>Creación de usuarios</h1>
+      <div className="crud-app">
+        <h1>Creación de usuarios, búsqueda & Agendamiento </h1>
         <div className="grid-1-2">
-          <CrudForm
-            createData={createData}
-            updateData={updateData}
-            dataToEdit={dataToEdit}
-            setDataToEdit={setDataToEdit}
-          />
-          {loading && <Loader />}{" "}
-          {/* Muestra el componente Loader si loading es true */}
-          {error && ( // Muestra el componente Messaje si error es true
-            <Messaje
-              msg={`Error ${error.status}: ${error.statusText} `}
-              bgColor="#dc3545"
-            />
-          )}
-          {db && ( // Muestra el componente CrudTable si db contiene datos
-            <CrudTable
-              data={db}
+          <div className="crud-form-container">
+            <CrudForm
+              createData={createData}
+              updateData={updateData}
+              dataToEdit={dataToEdit}
               setDataToEdit={setDataToEdit}
-              deleteData={deleteData}
             />
-          )}
+          </div>
         </div>
       </div>
     </>
