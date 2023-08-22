@@ -3,6 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/CrudForm.css";
+import Loader from "../components/Loader";
+import deleteIcon from "../assets/eliminar.png";
+import calendarIcon from "../assets/calendar_icon.png";
+import editIcon from "../assets/editar.png";
+import { helpHttp } from "../helpers/helpHttp";
 
 const initialForm = {
   firstName: "",
@@ -22,8 +27,9 @@ const initialForm = {
 
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const [form, setForm] = useState(initialForm);
-  const [searchValue, setSearchValue] = useState(""); 
-  const [searchResult, setSearchResult] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
 
   const handleChange = (e) => {
@@ -33,9 +39,30 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
     });
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
+    if (searchValue.trim() === "") {
+      return;
+    }
+    setLoading(true);
 
-    setSearchResult(results);
+    const apiUrl = "http://localhost:3000/pacientes";
+
+    try {
+      const response = await helpHttp().get(apiUrl);
+
+      if (!response || response.err) {
+        console.error("Error al obtener los resultados:", response);
+        setSearchResult([]);
+      } else {
+        setSearchResult(response);
+        console.log(response);
+      }
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+      setSearchResult([]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -57,10 +84,44 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
     formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const handleSelectPatient = (selectedPatient) => {
+    setDataToEdit(selectedPatient);
+    setSearchResult([]);
+  };
+
   const handleReset = () => {
     setForm(initialForm);
-    setDataToEdit(null);
+    setDataToEdit([]);
+    setSearchResult([]);
   };
+
+  const deleteData = async (id) => {
+    const apiUrl = `http://localhost:3000/pacientes/${id}`;
+
+    try {
+      const response = await helpHttp().del(apiUrl);
+      if (response.err) {
+        console.error("Error al eliminar:", response);
+      } else {
+        // Actualiza la lista de resultados después de la eliminación exitosa
+        setSearchResult(searchResult.filter((item) => item.id !== id));
+      }
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+    }
+  };
+
+  const filteredResults =
+    Array.isArray(searchResult) && searchValue !== ""
+      ? searchResult.filter((item) => {
+          const search = searchValue.toLowerCase();
+          const fullName =
+            `${item.firstName} ${item.middleName} ${item.lastName} ${item.secondLastName}`.toLowerCase();
+          const docInfo = `${item.kindDoc} ${item.docNumber}`.toLowerCase();
+
+          return fullName.includes(search) || docInfo.includes(search);
+        })
+      : [];
 
   useEffect(() => {
     if (dataToEdit) {
@@ -77,16 +138,73 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           <input
             type="text"
             className="input-search"
-            placeholder="Ingrese nombre del paciente a consultar"
+            placeholder="Ingrese nombre o documentos del paciente a consultar"
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+              handleSearch();
+            }}
           />
-          <button className="btn-search" onClick={handleSearch}>
-            Buscar
-          </button>
         </div>
       </div>
-
+      <div className="patients-list-container">
+        {!loading && searchResult.length > 0 ? (
+          <table className="patients-list">
+            <thead>
+              <tr>
+                <th>Primer Nombre</th>
+                <th>Segundo Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Documento</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {searchValue !== "" &&
+                filteredResults.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.firstName}</td>
+                    <td>{item.middleName}</td>
+                    <td>{item.lastName}</td>
+                    <td>{item.secondLastName}</td>
+                    <td>
+                      {item.kindDoc} {item.docNumber}
+                    </td>
+                    <td>
+                      <div className="table-actions">
+                        {" "}
+                        <button
+                          className="action-button-edit-button"
+                          onClick={() => handleSelectPatient(item)}
+                        >
+                          <img src={editIcon} alt="Editar" height={20} />
+                        </button>{" "}
+                        <button
+                          className="action-button-cronograma-button"
+                          onClick={() => {}}
+                        >
+                          <img src={calendarIcon} alt="Agendar" height={20} />
+                        </button>{" "}
+                        <button
+                          className="action-button-delete-button"
+                          onClick={() => deleteData(item.id)}
+                        >
+                          <img src={deleteIcon} alt="Eliminar" height={20} />
+                        </button>{" "}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        ) : !loading && searchResult.length === 0 ? (
+          <p> </p>
+        ) : (
+          <Loader />
+        )}
+      </div>
+      <hr />
       <div className="crud-form-container" ref={formRef}>
         <form onSubmit={handleSubmit}>
           <div className="crud-form-grid">
@@ -176,16 +294,16 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                 value={form.gender}
               >
                 <option>- - -</option>
-                <option value="masculino">Masculino</option>
-                <option value="femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Gay">Gay</option>
+                <option value="Lesbiana">Lesbiana</option>
+                <option value="Bisexual">Bisexual</option>
+                <option value="Pansexual">Pansexual</option>
+                <option value="Transgénero">Transgénero</option>
+                <option value="No-binario">No Binario</option>
+                <option value="Intersex">Intersex</option>
                 <option value="otro">Otro</option>
-                <option value="gay">Gay</option>
-                <option value="lesbiana">Lesbiana</option>
-                <option value="bisexual">Bisexual</option>
-                <option value="pansexual">Pansexual</option>
-                <option value="transgénero">Transgénero</option>
-                <option value="no-binario">No Binario</option>
-                <option value="intersex">Intersex</option>
               </select>
             </div>
 

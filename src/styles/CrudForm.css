@@ -1,119 +1,214 @@
-/* styles/CrudForm.css */
+.action-button-cronograma-button,
+.action-button-delete-button,
+.action-button-edit-button {
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
 
+.action-button-cronograma-button:hover {
+  background-color: #0ad306;
+  transform: scale(1.4);
+}
 
-.crud-form-grid {
-  width: auto;
-  justify-content: center;
-  padding: 40px; /* Reduzco el padding para hacerlo más compacto */
-  padding-left: 20px; /* Reduzco el padding para hacerlo más compacto */
-  padding-right: 20px; /* Reduzco el padding para hacerlo más compacto */
-  border: 1px solid #444;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  background-image: url("../img/open.png"); /* Ruta a tu imagen de fondo */
-  background-size: auto 34% ; /* Ajusta el tamaño de la imagen al contenedor */
-  background-position: calc(100% - 30px) calc(100% - 10px);
-  background-color: #282c34;
-  background-repeat: no-repeat;
-  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.9);
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+.action-button-delete-button:hover {
+  background-color: #e31e18;
+  transform: scale(1.4);
+}
+
+.action-button-edit-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.4);
+}
+
+.btn-search {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
   color: #fff;
-
-}
-
-
-input,
-select {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #333;
-  border-radius: 5px;
+  cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  margin-right: 10px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  
-  color: #000000;
-
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
 }
 
-select {
-  padding-left: 0;
-  width: 100%;
-}
-
-.crud-form-label {
-  flex-basis: 100%; /* Para asegurarte de que el label ocupe todo el ancho en una nueva línea */
-  font-weight: bold;
-  margin-right: 10px;
-  margin-bottom: 5px; /* Agrego un pequeño margen inferior para separar los labels */
-}
-
-.crud-form-input {
-  flex-basis: calc(25% - 10px); /* Divide el espacio en 4 columnas con espacio entre ellas */
-  padding: 10px;
-  border: 1px solid #333;
-  border-radius: 5px;
-  font-family: 'Roboto', sans-serif;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.crud-form-input:focus {
-  background-color: #aedbf1;
-  outline: none;
-  font-weight: bold;
-  color: rgb(60, 0, 0);
-  box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.5);
-  border-radius: 5px;
+.btn-search:hover {
+  background-color: #0056b3;
 }
 
 .crud-button-container {
   display: flex;
   justify-content: flex-end;
+  margin-top: 20px;
   width: 100%;
-  margin-top: 20px; /* Reduzco el margen superior para hacerlo más compacto */
 }
 
-.crud-button-container input[type="submit"],
-.crud-button-container input[type="reset"] {
+.crud-button-container input[type='reset'],
+.crud-button-container input[type='submit'] {
+  font-size: 14px;
+  padding: 10px 3px;
   width: 30%;
-  padding: 10px 3px; /* Ajusta el padding según prefieras */
-  font-size: 14px; /* Ajusta el tamaño de la fuente según prefieras */
+}
+
+.crud-form-grid {
+  align-items: center;
+  background-color: #282c34;
+  background-image: url('../img/open.png');
+  background-position: calc(100% - 30px) calc(100% - 10px);
+  background-repeat: no-repeat;
+  background-size: auto 25%;
+  border: 1px solid #444;
+  border-radius: 10px;
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.9);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  justify-content: center;
+  padding: 55px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: auto;
+}
+
+.crud-form-input {
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #000000;
+  flex-basis: calc(25% - 10px);
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.crud-form-input:focus {
+  background-color: #aedbf1;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.5);
+  color: rgb(60, 0, 0);
+  font-weight: bold;
+  outline: none;
+}
+
+.crud-form-label {
+  flex-basis: 100%;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.crud-form-label {
+  flex-basis: 100%;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.crud-form-input {
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #000000;
+  flex-basis: calc(25% - 10px);
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.crud-form-input:focus {
+  background-color: #d5f5e3;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.5);
+  box-shadow: 0px 0px 80px rgba(255, 179, 179, 0.9);
+  color: rgb(60, 0, 0);
+  font-weight: bold;
+  outline: none;
+}
+
+.crud-form-input,
+select {
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 10px;
+  padding: 10px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  width: 90%;
 }
 
 @media screen and (min-width: 1024px) {
   .crud-form-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-
 .input-search {
-  width: 200px; /* Ajusta el ancho según prefieras */
-  padding: 5px;
   border: 1px solid #333;
+  margin-top: 20px;
   border-radius: 5px;
+  color: #000000;
   font-family: 'Roboto', sans-serif;
+  padding: 5px;
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.9);
   transition: background-color 0.3s ease, border-color 0.3s ease;
+  width: 380px;
 }
-
-.btn-search {
-  padding: 5px 10px;
-  border: none;
+.input-search:hover {
+  background-color: #d5f5e3;
   border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.5);
+  color: rgb(60, 0, 0);
+  font-weight: bold;
+  box-shadow: 0px 0px 80px rgba(255, 179, 179, 0.9);
+  outline: none;
 }
 
-.btn-search:hover {
-  background-color: #0056b3; /* Cambia el color en el hover */
+.title2 {
+  display: grid;
+  font-family: 'Roboto', sans-serif;
+  align-items: center;
+  justify-content: center; /* Alineación horizontal centrada */
+  color: #282c34;
+  font-size: 40px;
+  text-shadow: 0px 0px 9px #282c34; /* Valores de la sombra */
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
+
+.patients-list-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+}
+
+.patients-list-container td,
+.patients-list-container th {
+  border: 1px solid #566573;
+  font-family: 'Roboto', sans-serif;
+  padding: 8px;
+  text-align: left;
+}
+
+.patients-list-container th {
+  background-color: #282c34;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+.patients-list-container tr:hover {
+  background-color: rgba(0, 123, 255, 0.413);
+
+}
+
+.select {
+  padding-left: 0;
+  width: 100%;
+}
+
 
 

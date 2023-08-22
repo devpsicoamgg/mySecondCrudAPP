@@ -7,6 +7,7 @@ import CrudTable from "./CrudTable"; // Importa el componente CrudTable desde el
 import { helpHttp } from "../helpers/helpHttp"; // Importa la función helpHttp desde el módulo helpers/helpHttp
 import Loader from "./Loader"; // Importa el componente Loader desde el archivo Loader.jsx
 import Messaje from "./Messaje"; // Importa el componente Messaje desde el archivo Messaje.jsx
+import "../styles/CrudApp.css";
 
 // Definición del componente principal CrudApp
 const CrudApp = () => {
@@ -99,7 +100,7 @@ const CrudApp = () => {
   return (
     <>
       <div className="crud-app">
-        <h1>Creación de usuarios, búsqueda & Agendamiento </h1>
+        <h2 className="title2">CREACIÓN, BÚSQUEDA & AGENDAMIENTO SESIONES </h2>
         <div className="grid-1-2">
           <div className="crud-form-container">
             <CrudForm
